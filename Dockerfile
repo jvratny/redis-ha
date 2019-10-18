@@ -1,15 +1,5 @@
-FROM rhscl/redis-32-rhel7:latest
+FROM registry.redhat.com/rhscl/redis-5-rhel7:latest
 
-COPY redis-master.conf ${HOME}/redis-master/redis.conf
-COPY redis-slave.conf ${HOME}/redis-slave/redis.conf
-COPY run.sh ${REDIS_PREFIX}/bin/run.sh
+COPY redis.conf /etc/redis.conf
 
-USER root
-
-RUN yum install hostname -y
-
-RUN chmod -R 777 ${HOME}/redis-*
-
-USER 1001
-
-CMD [ "run.sh" ]
+CMD [ "run-redis" ]
