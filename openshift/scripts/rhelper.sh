@@ -22,7 +22,7 @@ case "$1" in
 "cli")
     PODS=$(oc get pods -lrediscluster=$CLUSTER_NAME -o custom-columns=NAME:.metadata.name --no-headers)
     FIRST_NODE=$(echo $PODS |awk '{print $1;}')
-    oc rsh $FIRST_NODE /bin/bash -c redis-cli -a $PASSWORD
+    echo oc rsh $FIRST_NODE /bin/bash -c redis-cli -a $PASSWORD
     ;;
 *)
     echo "Bad command!"
