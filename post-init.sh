@@ -4,6 +4,5 @@
 # Feel free to add content to this file or rewrite it at all.
 # You may also start redis server locally to load some data for example,
 # but do not forget to stop it after it, so it can be restarted after it.
-echo "\n" >> /etc/redis.conf
 eval echo "cluster-announce-ip \$$REDIS_INSTANCE""_SERVICE_HOST" >> /etc/redis.conf
-echo "\n" >> /etc/redis.conf
+
